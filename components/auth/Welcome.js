@@ -1,7 +1,9 @@
 import * as React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import {Register} from './Register'
+import {Register} from './Register';
+import {Contacts} from '../chats/Contacts';
+import {ChatDetail} from '../chats/ChatDetail';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,11 +42,30 @@ export const Welcome = () => {
                 headerTitleStyle: {display: 'none'}
             }}
         >
-            <Stack.Screen name="welcome" component={WelcomeView}/>
+            <Stack.Screen
+                name="welcome"
+                component={WelcomeView}
+            />
             <Stack.Screen
                 name="register"
                 component={Register}
                 options={{headerShown: true}}
+            />
+            <Stack.Screen
+                name="contacts"
+                component={Contacts}
+            />
+            <Stack.Screen
+                name="chatDetail"
+                component={ChatDetail}
+                options={{
+                    headerShown: true,
+                    headerTitleStyle: {
+                        fontSize: 18,
+                        fontWeight: 600,
+                        lineHeight: 30
+                    }
+                }}
             />
         </Stack.Navigator>
     )
